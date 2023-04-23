@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>practicafinal</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="0-PracticaFinal_files/libs/clipboard/clipboard.min.js"></script>
+<script src="0-PracticaFinal_files/libs/quarto-html/quarto.js"></script>
+<script src="0-PracticaFinal_files/libs/quarto-html/popper.min.js"></script>
+<script src="0-PracticaFinal_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="0-PracticaFinal_files/libs/quarto-html/anchor.min.js"></script>
+<link href="0-PracticaFinal_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="0-PracticaFinal_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="0-PracticaFinal_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="0-PracticaFinal_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="0-PracticaFinal_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cargar los datos en un dataframe llamado: airbnb</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>airbnb<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">'data//airbnb.csv'</span>,<span class="at">sep =</span> <span class="st">','</span>, <span class="at">stringsAsFactors =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mostrar las primeras 6 filas del dataframe</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airbnb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Zipcode Neighbourhood.Cleansed Property.Type       Room.Type Accommodates
+1   28004            Universidad     Apartment    Private room            2
+2   28004            Universidad     Apartment Entire home/apt            6
+3   28004            Universidad     Apartment Entire home/apt            3
+4   28004            Universidad          Loft Entire home/apt            3
+5   28015            Universidad     Apartment Entire home/apt            5
+6   28004            Universidad     Apartment Entire home/apt            2
+  Bathrooms Bedrooms Beds Bed.Type
+1         2        1    1 Real Bed
+2         1        3    5 Real Bed
+3         1        2    2 Real Bed
+4         2        1    1 Real Bed
+5         1        1    1 Real Bed
+6         1        0    1 Real Bed
+                                                                                                                                                                                                                                                                                                                                                         Amenities
+1                                                                                                                                                                              TV,Wireless Internet,Kitchen,Pets allowed,Pets live on this property,Buzzer/wireless intercom,Heating,Suitable for events,Washer,First aid kit,Essentials,Lock on bedroom door,Iron
+2                                                                                                                                                                                      TV,Internet,Wireless Internet,Air conditioning,Kitchen,Indoor fireplace,Heating,Family/kid friendly,Washer,Dryer,Smoke detector,Carbon monoxide detector,Essentials,Shampoo
+3                                                                                                                                                                                           TV,Internet,Wireless Internet,Air conditioning,Kitchen,Doorman,Heating,Family/kid friendly,Washer,Essentials,Shampoo,Hangers,Hair dryer,Iron,Laptop friendly workspace
+4                                           TV,Internet,Wireless Internet,Air conditioning,Kitchen,Pets allowed,Breakfast,Elevator in building,Indoor fireplace,Buzzer/wireless intercom,Heating,Washer,Essentials,Shampoo,Hangers,Hair dryer,Iron,Laptop friendly workspace,translation missing: en.hosting_amenity_49,translation missing: en.hosting_amenity_50
+5                                                                                                                                                                                                               TV,Wireless Internet,Air conditioning,Kitchen,Smoking allowed,Pets allowed,Elevator in building,Heating,Family/kid friendly,Washer,Essentials,Iron
+6 TV,Cable TV,Internet,Wireless Internet,Air conditioning,Wheelchair accessible,Kitchen,Doorman,Elevator in building,Buzzer/wireless intercom,Heating,Washer,Smoke detector,Carbon monoxide detector,First aid kit,Safety card,Fire extinguisher,Essentials,Shampoo,24-hour check-in,Hangers,Hair dryer,Iron,Laptop friendly workspace,Self Check-In,Doorman Entry
+  Square.Feet Price Review.Scores.Rating
+1          NA    35                   NA
+2          NA    92                   96
+3          NA    55                   91
+4          NA    60                  100
+5         538    75                   90
+6          NA    55                   95</code></pre>
+</div>
+</div>
+<p>Renombrar las columnas de la siguiente forma:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Nombre original</th>
+<th>Nuevo nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Zipcode</td>
+<td>CodigoPostal</td>
+</tr>
+<tr class="even">
+<td>Neighbourhood.Cleansed</td>
+<td>Barrio</td>
+</tr>
+<tr class="odd">
+<td>Property.Type</td>
+<td>TipoPropiedad</td>
+</tr>
+<tr class="even">
+<td>Room.Type</td>
+<td>TipoAlquiler</td>
+</tr>
+<tr class="odd">
+<td>Accommodates</td>
+<td>MaxOcupantes</td>
+</tr>
+<tr class="even">
+<td>Bathrooms</td>
+<td>NumBanyos</td>
+</tr>
+<tr class="odd">
+<td>Bedrooms</td>
+<td>NumDormitorios</td>
+</tr>
+<tr class="even">
+<td>Beds</td>
+<td>NumCamas</td>
+</tr>
+<tr class="odd">
+<td>Bed.Type</td>
+<td>TipoCama</td>
+</tr>
+<tr class="even">
+<td>Amenities</td>
+<td>Comodidades</td>
+</tr>
+<tr class="odd">
+<td>Square.Feet</td>
+<td>PiesCuadrados</td>
+</tr>
+<tr class="even">
+<td>Price</td>
+<td>Precio</td>
+</tr>
+<tr class="odd">
+<td>Review.Scores.Rating</td>
+<td>Puntuacion</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>newnames<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"CodigoPostal"</span>,<span class="st">"Barrio"</span>,<span class="st">"TipoPropiedad"</span>,<span class="st">"TipoAlquiler"</span>,<span class="st">"MaxOcupantes"</span>,<span class="st">"NumBanyos"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">"NumDormitorios"</span>,<span class="st">"NumCamas"</span>,<span class="st">"TipoCama"</span>,<span class="st">"Comodidades"</span>,<span class="st">"PiesCuadrados"</span>,<span class="st">"Precio"</span>,<span class="st">"Puntuacion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(airbnb)<span class="ot">&lt;-</span>newnames</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Crea una nueva columna llamada MetrosCuadrados a partir de la columna PiesCuadrados.</p>
+<p>Ayuda: 1 pie cuadrado son 0,092903 metros cuadrdados</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>airbnb<span class="sc">$</span>MetrosCuadrados<span class="ot">&lt;-</span>airbnb<span class="sc">$</span>PiesCuadrados<span class="sc">*</span><span class="fl">0.092903</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Miremos el código postal. Es una variable con entradas erroneas. Hay valores como ’‘,’-’ y ‘28’ que deberían ser considerados como NA. Así mismo también debería ser NA todos los que no compiencen por 28, ya que estamos con códigos postales de Madrid</p>
+<p>El código postal 28002, 28004 y 28051 tienen entradas repetidas. Por ejemplo las entradas 28002 deberían ir dentro de 28002</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"28002</span><span class="sc">\n</span><span class="st">28002"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28002"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"28004</span><span class="sc">\n</span><span class="st">28004"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28004"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"28051</span><span class="sc">\n</span><span class="st">28051"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28051"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El codigo 2804 debería ser 28004, 2805 deberia ser 28005 y 2815 junto con 2815 debería ser 28015dro</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"2804"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28004"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"2804"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28004"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"Madrid 28004"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28004"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"2015"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28015"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"2805"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28005"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"2815"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28015"</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">"280013"</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="st">"28013"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal<span class="sc">==</span><span class="st">""</span>),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>CodigoPostal <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'-'</span>,<span class="st">'28'</span>,<span class="st">'20013'</span>,<span class="st">'20126'</span>,<span class="st">'25008'</span>,<span class="st">'27004'</span>,<span class="st">'27013'</span>)),<span class="st">"CodigoPostal"</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>airbnb<span class="sc">$</span>CodigoPostal<span class="ot">&lt;-</span><span class="fu">droplevels</span>(airbnb<span class="sc">$</span>CodigoPostal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Limpia los datos de la columna Codigo Postal</p>
+<p>Una vez limpios los datos ¿Cuales son los códigos postales que tenemos?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>codigos <span class="ot">&lt;-</span> airbnb<span class="sc">$</span>CodigoPostal[<span class="fu">which</span>(<span class="sc">!</span><span class="fu">is.na</span>(airbnb<span class="sc">$</span>CodigoPostal))]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(codigos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 28004 28015 28013 28005 28012 28014 28045 28007 28028 28009 28001 28006
+[13] 28010 28002 28034 28050 28008 28011 28049 28038 28053 28047 28025 28019
+[25] 28024 28016 28036 28046 28039 28020 28003 28029 28054 28041 28026 28058
+[37] 28018 28030 28017 28027 28043 28033 28055 28021 28032 28037 28022 28042
+[49] 28094 28035 28040 28031 28044 28105 28023 28051 28850 28048 28056 28060
+[61] 28052
+61 Levels: 28001 28002 28003 28004 28005 28006 28007 28008 28009 ... 28850</code></pre>
+</div>
+</div>
+<p>¿Cuales son los 5 códigos postales con más entradas? ¿Y con menos? ¿Cuantas entradas tienen?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mas_frecuentes <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">sort</span>(<span class="fu">table</span>(codigos),<span class="at">decreasing=</span><span class="cn">TRUE</span>))[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Los códigos postales más frecuentes son: "</span>,<span class="fu">paste0</span>(mas_frecuentes, <span class="at">collapse =</span> <span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los códigos postales más frecuentes son: 28012, 28004, 28005, 28013, 28014"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>menos_frecuentes <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">sort</span>(<span class="fu">table</span>(codigos)))[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Los códigos postales menos frecuentes son: "</span>,<span class="fu">paste0</span>(menos_frecuentes, <span class="at">collapse =</span> <span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los códigos postales menos frecuentes son: 28048, 28052, 28056, 28058, 28060"</code></pre>
+</div>
+</div>
+<p>¿Cuales son los barrios que hay en el código postal 28012?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>barrios_28012 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(airbnb<span class="sc">$</span>Barrio[airbnb<span class="sc">$</span>CodigoPostal <span class="sc">==</span> <span class="st">"28012"</span>])</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>barrios_28012 <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(barrios_28012)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Los barrios que hay en el código postal 28012 son: "</span>,<span class="fu">paste0</span>(<span class="fu">unique</span>(barrios_28012),<span class="at">collapse=</span><span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los barrios que hay en el código postal 28012 son: Sol, Acacias, Palos de Moguer, Embajadores, Cortes, Palacio, Universidad, Delicias, Arapiles, Atocha, Goya"</code></pre>
+</div>
+</div>
+<p>¿Cuantas entradas hay en cada uno de esos barrios para el codigo postal 28012?</p>
+<p>entradas &lt;- data.frame(barrio = names(tabla), frecuencia = as.numeric(tabla))</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">table</span>(barrios_28012)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>entradas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">barrio =</span> <span class="fu">names</span>(tabla), <span class="at">frecuencia =</span> <span class="fu">as.numeric</span>(tabla))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,<span class="st">"El barrio "</span>,entradas<span class="sc">$</span>barrio,<span class="st">" tiene "</span>,entradas<span class="sc">$</span>frecuencia,<span class="st">" entradas"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    El barrio Acacias tiene 13 entradas
+    El barrio Arapiles tiene 1 entradas
+    El barrio Atocha tiene 1 entradas
+    El barrio Cortes tiene 216 entradas
+    El barrio Delicias tiene 1 entradas
+    El barrio Embajadores tiene 1449 entradas
+    El barrio Goya tiene 1 entradas
+    El barrio Palacio tiene 27 entradas
+    El barrio Palos de Moguer tiene 46 entradas
+    El barrio Sol tiene 301 entradas
+    El barrio Universidad tiene 4 entradas</code></pre>
+</div>
+</div>
+<p>¿Cuantos barrios hay en todo el dataset airbnb? ¿Cuales son?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"En el dataset airbnb hay "</span>,<span class="fu">length</span>(<span class="fu">unique</span>(airbnb<span class="sc">$</span>Barrio)),<span class="st">" barrios"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "En el dataset airbnb hay 125 barrios"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Los barrios que hay en el dataset son: "</span>,<span class="fu">paste0</span>(<span class="fu">unique</span>(airbnb<span class="sc">$</span>Barrio),<span class="at">collapse=</span><span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los barrios que hay en el dataset son: Universidad, Sol, Imperial, Acacias, Chopera, Delicias, Palos de Moguer, Embajadores, Cortes, Atocha, Pacífico, Adelfas, Estrella, Ibiza, Jerónimos, Niño Jesús, Palacio, Justicia, Recoletos, Goya, Fuente del Berro, Arapiles, Trafalgar, Almagro, Guindalera, Lista, Castellana, El Viso, Prosperidad, Valverde, Casa de Campo, El Goloso, Numancia, Cármenes, Puerta del Angel, Lucero, Aluche, San Isidro, Campamento, Comillas, Opañel, Vista Alegre, Ciudad Jardín, Hispanoamérica, Nueva España, Castilla, Bellas Vistas, Cuatro Caminos, Castillejos, Vallehermoso, Almenara, Valdeacederas, Berruguete, Gaztambide, Rios Rosas, Peñagrande, Argüelles, Puerta Bonita, Buenavista, Abrantes, Orcasur, San Fermín, Almendrales, Pradolongo, Portazgo, Entrevías, San Diego, Palomeras Bajas, Fontarrón, Vinateros, Ventas, Pueblo Nuevo, Quintana, Concepción, San Juan Bautista, Costillares, Piovera, Canillas, Pinar del Rey, Apostol Santiago, San Andrés, Valdefuentes, Butarque, Los Angeles, Casco Histórico de Vicálvaro, Simancas, Rejas, Salvador, Casco Histórico de Barajas, Pilar, La Paz, Mirasierra, Ciudad Universitaria, Moscardó, Palomeras Sureste, Marroquina, Media Legua, Los Rosales, Casco Histórico de Vallecas, Timón, Corralejos, Cuatro Vientos, Colina, San Cristobal, Alameda de Osuna, Aeropuerto, Palomas, Zofío, Aguilas, Legazpi, Fuentelareina, Aravaca, Ambroz, Canillejas, Valdezarza, Amposta, San Pascual, Santa Eugenia, Arcos, Rosas, Valdemarín, El Plantío, Hellín, Pavones, Orcasitas"</code></pre>
+</div>
+</div>
+<p>¿Cuales son los 5 barrios que tienen mayor número entradas?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mas_frecuentes <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">sort</span>(<span class="fu">table</span>(airbnb<span class="sc">$</span>Barrio),<span class="at">decreasing=</span><span class="cn">TRUE</span>))[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Los cinco barrios con mayor número de entradas son: "</span>,<span class="fu">paste0</span>(mas_frecuentes, <span class="at">collapse =</span> <span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los cinco barrios con mayor número de entradas son: Embajadores, Universidad, Palacio, Sol, Justicia"</code></pre>
+</div>
+</div>
+<p>¿Cuantos Tipos de Alquiler diferentes hay? ¿Cuales son? ¿Cuantas entradas en el dataframe hay por cada tipo?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"En el dataset hay "</span>,<span class="fu">length</span>(<span class="fu">unique</span>(airbnb<span class="sc">$</span>TipoAlquiler)),<span class="st">" tipos de alquiler"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "En el dataset hay 3 tipos de alquiler"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Los tipos de alquiler que hay en el dataset son: "</span>,<span class="fu">paste0</span>(<span class="fu">unique</span>(airbnb<span class="sc">$</span>TipoAlquiler),<span class="at">collapse=</span><span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los tipos de alquiler que hay en el dataset son: Private room, Entire home/apt, Shared room"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>tipos_alquiler <span class="ot">&lt;-</span> <span class="fu">table</span>(airbnb<span class="sc">$</span>TipoAlquiler)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>tipos_alquiler_frec <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">TipoAlquiler =</span> <span class="fu">names</span>(tipos_alquiler), <span class="at">frecuencia =</span> <span class="fu">as.numeric</span>(tipos_alquiler))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,<span class="st">"El tipo de alquiler "</span>,tipos_alquiler_frec<span class="sc">$</span>TipoAlquiler,<span class="st">" tiene "</span>,tipos_alquiler_frec<span class="sc">$</span>frecuencia,<span class="st">" entradas"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    El tipo de alquiler Entire home/apt tiene 7903 entradas
+    El tipo de alquiler Private room tiene 5113 entradas
+    El tipo de alquiler Shared room tiene 191 entradas</code></pre>
+</div>
+</div>
+<p>Muestra el diagrama de cajas del precio para cada uno de los diferentes Tipos de Alquiler</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>airbnb, <span class="fu">aes</span>(<span class="at">x=</span>TipoAlquiler, <span class="at">y=</span>Precio, <span class="at">color=</span>TipoAlquiler))<span class="sc">+</span><span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>)<span class="sc">+</span><span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>))<span class="sc">+</span><span class="fu">scale_color_discrete</span>(<span class="at">name=</span><span class="st">"Tipo de alquiler"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 9 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="0-PracticaFinal_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Cual es el precio medio de alquiler de cada uno, la diferencia que hay ¿es estadísticamente significativa? ¿Con que test lo comprobarías?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"El precio medio del tipo Entire home/apt es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb<span class="sc">$</span>Precio[<span class="fu">which</span>(airbnb<span class="sc">$</span>TipoAlquiler<span class="sc">==</span><span class="st">"Entire home/apt"</span>)])), <span class="st">" euros"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "El precio medio del tipo Entire home/apt es 87.2966058763931 euros"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"El precio medio del tipo Private room es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb<span class="sc">$</span>Precio[<span class="fu">which</span>(airbnb<span class="sc">$</span>TipoAlquiler<span class="sc">==</span><span class="st">"Private room"</span>)])), <span class="st">" euros"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "El precio medio del tipo Private room es 34.255135981217 euros"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"El precio medio del tipo Shared room es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb<span class="sc">$</span>Precio[<span class="fu">which</span>(airbnb<span class="sc">$</span>TipoAlquiler<span class="sc">==</span><span class="st">"Shared room"</span>)])), <span class="st">" euros"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "El precio medio del tipo Shared room es 29.8534031413613 euros"</code></pre>
+</div>
+</div>
+<p>Para ver si la diferencia es estadísticamente significativa primero miramos si cada una de las medias sigue una distribución gaussiana (normal)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>precios_entire_home <span class="ot">&lt;-</span> airbnb<span class="sc">$</span>Precio[<span class="fu">which</span>(airbnb<span class="sc">$</span>TipoAlquiler<span class="sc">==</span><span class="st">"Entire home/apt"</span>)]</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>precios_private_room <span class="ot">&lt;-</span> airbnb<span class="sc">$</span>Precio[<span class="fu">which</span>(airbnb<span class="sc">$</span>TipoAlquiler<span class="sc">==</span><span class="st">"Private room"</span>)]</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>precios_shared_room <span class="ot">&lt;-</span> airbnb<span class="sc">$</span>Precio[<span class="fu">which</span>(airbnb<span class="sc">$</span>TipoAlquiler<span class="sc">==</span><span class="st">"Shared room"</span>)]</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"El p-valor del tipo entire_home es "</span>,<span class="fu">shapiro.test</span>(precios_entire_home[<span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>])<span class="sc">$</span>p.value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "El p-valor del tipo entire_home es  1.24077898621874e-72"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"El p-valor del tipo private room es "</span>,<span class="fu">shapiro.test</span>(precios_private_room[<span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>])<span class="sc">$</span>p.value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "El p-valor del tipo private room es  9.18974842339072e-85"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"El p-valor del tipo shared room es "</span>,<span class="fu">shapiro.test</span>(precios_shared_room[<span class="dv">1</span><span class="sc">:</span><span class="dv">5000</span>])<span class="sc">$</span>p.value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "El p-valor del tipo shared room es  4.51672121600842e-24"</code></pre>
+</div>
+</div>
+<p>Ninguno de los tres precios sigue una distribución normal, por lo que aplicamos el test Kruskal-Wallis</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(TipoAlquiler <span class="sc">~</span> Precio, <span class="at">data =</span> airbnb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  TipoAlquiler by Precio
+Kruskal-Wallis chi-squared = 8499.6, df = 278, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p><strong>Como el p-valor &lt; 0,05 decimos que hay diferencias significativas estadísticamente en la media.</strong></p>
+<p>Filtra el dataframe cuyos tipo de alquiler sea ‘Entire home/apt’ y guardalo en un dataframe llamado <em>airbnb_entire</em>. Estas serán las entradas que tienen un alquiler del piso completo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>airbnb_entire <span class="ot">&lt;-</span> airbnb[<span class="fu">which</span>(airbnb<span class="sc">$</span>TipoAlquiler<span class="sc">==</span><span class="st">"Entire home/apt"</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>¿Cuales son los 5 barrios que tienen un mayor número de apartamentos enteros en alquiler? Nota: Mirar solo en airbnb_entire. A partir de este punto y hasta que se diga lo contrario partiremos de airbnb_entire.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>mayor_numero <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">sort</span>(<span class="fu">table</span>(airbnb_entire<span class="sc">$</span>Barrio),<span class="at">decreasing=</span><span class="cn">TRUE</span>))[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="st">"Los 5 barrios que tienen un mayor número de apartamentos enteros en alquiler son: "</span>,<span class="fu">paste0</span>(mayor_numero, <span class="at">collapse =</span> <span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los 5 barrios que tienen un mayor número de apartamentos enteros en alquiler son: Embajadores, Universidad, Palacio, Sol, Cortes"</code></pre>
+</div>
+</div>
+<p>¿Cuales son los 5 barrios que tienen un mayor precio medio de alquiler para apartamentos enteros (es decir, del dataframe airbnb_entire)?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>mayor_precio_medio <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(airbnb_entire<span class="sc">$</span>Precio, <span class="fu">list</span>(airbnb_entire<span class="sc">$</span>Barrio),mean)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mayor_precio_medio) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Barrio"</span>,<span class="st">"Precio Medio"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>mayor_precio_medio <span class="ot">&lt;-</span> mayor_precio_medio[<span class="fu">with</span>(mayor_precio_medio, <span class="fu">order</span>(<span class="sc">-</span>mayor_precio_medio<span class="sc">$</span><span class="st">`</span><span class="at">Precio Medio</span><span class="st">`</span>)),]</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Los 5 barrios con mayor precio medio de alquiler son "</span>,<span class="fu">paste</span>(mayor_precio_medio<span class="sc">$</span>Barrio[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">collapse =</span><span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los 5 barrios con mayor precio medio de alquiler son  Palomas, Fuentelareina, El Plantío, Casco Histórico de Barajas, Alameda de Osuna"</code></pre>
+</div>
+</div>
+<p>¿Cual es su precio medio?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>cincobarrios <span class="ot">&lt;-</span> <span class="fu">c</span>(mayor_precio_medio<span class="sc">$</span>Barrio[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>cincoprecios <span class="ot">&lt;-</span> <span class="fu">c</span>(mayor_precio_medio<span class="sc">$</span><span class="st">`</span><span class="at">Precio Medio</span><span class="st">`</span>[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Los cinco barrios con mayor precio medio y sus precios medios son: "</span>,<span class="fu">paste</span>(cincobarrios,cincoprecios, <span class="at">collapse=</span><span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los cinco barrios con mayor precio medio y sus precios medios son:  Palomas 309.75, Fuentelareina 180, El Plantío 150, Casco Histórico de Barajas 141.25, Alameda de Osuna 138.75"</code></pre>
+</div>
+</div>
+<p>Ayuda: Usa la función aggregate <code>aggregate(.~colname,df,mean,na.rm=TRUE)</code></p>
+<p>¿Cuantos apartamentos hay en cada uno de esos barrios?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>numero_apartamentos <span class="ot">&lt;-</span> airbnb_entire<span class="sc">$</span>Barrio[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio <span class="sc">%in%</span> cincobarrios)]</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>numero_apartamentos <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(numero_apartamentos)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(numero_apartamentos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>numero_apartamentos
+          Alameda de Osuna Casco Histórico de Barajas 
+                         4                          8 
+                El Plantío              Fuentelareina 
+                         1                          2 
+                   Palomas 
+                         4 </code></pre>
+</div>
+</div>
+<p>Mostrar una dataframe con el nombre del barrio, el precio y el número de entradas.</p>
+<p>Ayuda: Podeis crear un nuevo dataframe con las columnas “Barrio” y “Freq” que contenga el número de entradas en cada barrio y hacer un merge con el dataframe del punto anterior.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>frecuencia_barrio <span class="ot">&lt;-</span> <span class="fu">table</span>(airbnb_entire<span class="sc">$</span>Barrio)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>frecuencia_barrio <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Barrio =</span> <span class="fu">names</span>(frecuencia_barrio), <span class="at">Frecuencia =</span> <span class="fu">as.numeric</span>(frecuencia_barrio))</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>precio_medio <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(airbnb_entire<span class="sc">$</span>Precio, <span class="fu">list</span>(airbnb_entire<span class="sc">$</span>Barrio),mean)</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(precio_medio) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Barrio"</span>,<span class="st">"Precio Medio"</span>)</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>nuevo_df <span class="ot">&lt;-</span> <span class="fu">merge</span>(frecuencia_barrio, precio_medio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Partiendo del dataframe anterior, muestra los 5 barrios con mayor precio, pero que tengan más de 100 entradas de alquiler.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>nuevo_df<span class="ot">&lt;-</span>nuevo_df[<span class="fu">order</span>(nuevo_df<span class="sc">$</span><span class="st">`</span><span class="at">Precio Medio</span><span class="st">`</span>,<span class="at">decreasing=</span><span class="cn">TRUE</span>),]</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>nuevo_df<span class="ot">&lt;-</span>nuevo_df[<span class="fu">which</span>(nuevo_df<span class="sc">$</span>Frecuencia<span class="sc">&gt;=</span><span class="dv">100</span>),]</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Los cinco barrios con mayor precio de alquiler que tienen más de 100 entradas son"</span>,<span class="fu">paste</span>(nuevo_df<span class="sc">$</span>Barrio[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>],<span class="at">collapse=</span><span class="st">", "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Los cinco barrios con mayor precio de alquiler que tienen más de 100 entradas son Goya, Sol, Trafalgar, Justicia, Cortes"</code></pre>
+</div>
+</div>
+<p>Dibuja el diagrama de densidad de distribución de los diferentes precios. Serían 5 gráficas, una por cada barrio.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airbnb_entire[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Goya"</span>,<span class="st">"Sol"</span>,<span class="st">"Trafalgar"</span>,<span class="st">"Justicia"</span>,<span class="st">"Cortes"</span>)),], <span class="fu">aes</span>(<span class="at">x=</span>Precio, <span class="at">color=</span>Barrio))<span class="sc">+</span><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="0-PracticaFinal_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Calcula el tamaño medio, en metros cuadrados, para los 5 barrios anteriores y muestralo en el mismo dataframe junto con el precio y número de entradas</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"La media de metros cuadrados de Goya es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb_entire<span class="sc">$</span>PiesCuadrados[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Goya"</span> <span class="sc">&amp;</span> airbnb_entire<span class="sc">$</span>PiesCuadrados<span class="sc">&gt;</span><span class="dv">0</span>)]))<span class="sc">*</span><span class="fl">0.092903</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "La media de metros cuadrados de Goya es  77.5275535"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"La media de metros cuadrados de Sol es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb_entire<span class="sc">$</span>PiesCuadrados[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Sol"</span> <span class="sc">&amp;</span> airbnb_entire<span class="sc">$</span>PiesCuadrados<span class="sc">&gt;</span><span class="dv">0</span>)]))<span class="sc">*</span><span class="fl">0.092903</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "La media de metros cuadrados de Sol es  68.425382075"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"La media de metros cuadrados de Trafalgar es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb_entire<span class="sc">$</span>PiesCuadrados[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Trafalgar"</span> <span class="sc">&amp;</span> airbnb_entire<span class="sc">$</span>PiesCuadrados<span class="sc">&gt;</span><span class="dv">0</span>)]))<span class="sc">*</span><span class="fl">0.092903</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "La media de metros cuadrados de Trafalgar es  51.282456"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"La media de metros cuadrados de Justicia es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb_entire<span class="sc">$</span>PiesCuadrados[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Justicia"</span> <span class="sc">&amp;</span> airbnb_entire<span class="sc">$</span>PiesCuadrados<span class="sc">&gt;</span><span class="dv">0</span>)]))<span class="sc">*</span><span class="fl">0.092903</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "La media de metros cuadrados de Justicia es  53.88374"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"La media de metros cuadrados de Cortes es "</span>,<span class="fu">mean</span>(<span class="fu">na.omit</span>(airbnb_entire<span class="sc">$</span>PiesCuadrados[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Cortes"</span> <span class="sc">&amp;</span> airbnb_entire<span class="sc">$</span>PiesCuadrados<span class="sc">&gt;</span><span class="dv">0</span>)]))<span class="sc">*</span><span class="fl">0.092903</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "La media de metros cuadrados de Cortes es  27.9837107857143"</code></pre>
+</div>
+</div>
+<p>Dibuja el diagrama de densidad de distribución de los diferentes tamaños de apartamentos. Serían 5 gráficas, una por cada barrio.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airbnb_entire[<span class="fu">which</span>(airbnb_entire<span class="sc">$</span>Barrio <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Goya"</span>,<span class="st">"Sol"</span>,<span class="st">"Trafalgar"</span>,<span class="st">"Justicia"</span>,<span class="st">"Cortes"</span>) <span class="sc">&amp;</span> airbnb_entire<span class="sc">$</span>PiesCuadrados<span class="sc">&gt;</span><span class="dv">0</span>),], <span class="fu">aes</span>(<span class="at">x=</span>PiesCuadrados, <span class="at">color=</span>Barrio))<span class="sc">+</span><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="0-PracticaFinal_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Esta claro que las medias de metros cuadrados de cada uno de estos 5 barrios parecen ser diferentes, pero ¿son estadísticamente diferentes? ¿Que test habría que usar para comprobarlo?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(airbnb_entire<span class="sc">$</span>MetrosCuadrados[airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Goya"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  airbnb_entire$MetrosCuadrados[airbnb_entire$Barrio == "Goya"]
+W = 0.93813, p-value = 0.5199</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(airbnb_entire<span class="sc">$</span>MetrosCuadrados[airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Justicia"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  airbnb_entire$MetrosCuadrados[airbnb_entire$Barrio == "Justicia"]
+W = 0.76212, p-value = 0.0006419</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(airbnb_entire<span class="sc">$</span>MetrosCuadrados[airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Sol"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  airbnb_entire$MetrosCuadrados[airbnb_entire$Barrio == "Sol"]
+W = 0.83089, p-value = 8.691e-07</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(airbnb_entire<span class="sc">$</span>MetrosCuadrados[airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Trafalgar"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  airbnb_entire$MetrosCuadrados[airbnb_entire$Barrio == "Trafalgar"]
+W = 0.75023, p-value = 0.01276</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(airbnb_entire<span class="sc">$</span>MetrosCuadrados[airbnb_entire<span class="sc">$</span>Barrio<span class="sc">==</span><span class="st">"Recoletos"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  airbnb_entire$MetrosCuadrados[airbnb_entire$Barrio == "Recoletos"]
+W = 0.75, p-value &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Pese a que el test shapiro indica distribución normal en Goya, el resto no, así que hacemos test kruskal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Pese a que el test shapiro indica distribución normal en Goya, el resto no, así que hacemos test kruskal"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(MetrosCuadrados <span class="sc">~</span> Barrio, <span class="at">data =</span> airbnb_entire)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  MetrosCuadrados by Barrio
+Kruskal-Wallis chi-squared = 78.411, df = 55, p-value = 0.02077</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Como el p-valor es menor a 0,05 no podemos decir que sean estadísticamente iguales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Como el p-valor es menor a 0,05 no podemos decir que sean estadísticamente iguales"</code></pre>
+</div>
+</div>
+<p>Para únicamente los pisos de alquiler en el barrio de Sol:</p>
+<p><code>barrio_sol&lt;-subset(airbnb_entire,Barrio=="Sol")</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>barrio_sol<span class="ot">&lt;-</span><span class="fu">subset</span>(airbnb_entire,Barrio<span class="sc">==</span><span class="st">"Sol"</span>)</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>barrio_sol[<span class="fu">which</span>(barrio_sol<span class="sc">$</span>MetrosCuadrados<span class="sc">==</span><span class="dv">0</span>),<span class="st">"MetrosCuadrados"</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calcular un modelo lineal que combine alguna de estas variables: * NumBanyos * NumDormitorios * MaxOcupantes * MetrosCuadrados</p>
+<p>Primero calculamos la correlación para ver como se relacionan estas variables entre sí.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">na.omit</span>(barrio_sol[, <span class="fu">c</span>(<span class="st">"NumBanyos"</span>, <span class="st">"NumDormitorios"</span>, <span class="st">"MaxOcupantes"</span>, <span class="st">"MetrosCuadrados"</span>)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                NumBanyos NumDormitorios MaxOcupantes MetrosCuadrados
+NumBanyos       1.0000000      0.7356920    0.8528252       0.5712130
+NumDormitorios  0.7356920      1.0000000    0.7841590       0.7717458
+MaxOcupantes    0.8528252      0.7841590    1.0000000       0.7108265
+MetrosCuadrados 0.5712130      0.7717458    0.7108265       1.0000000</code></pre>
+</div>
+</div>
+<p>Se observa que la correlación entre el número de dormitorios y los metros cuadrados es sorprendentemente baja. ¿Son de fiar esos números?</p>
+<p>Mediante un histograma o curvas de densidad podemos descartar números que notienen sentido en el dataframe barrio_sol, para tener una matriz de correlación que tenga mayor sentido.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(barrio_sol, <span class="fu">aes</span>(<span class="at">x=</span>MetrosCuadrados))<span class="sc">+</span><span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 661 rows containing non-finite values (`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="0-PracticaFinal_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Una vez que hayamos filtrado los datos correspondientes calcular el valor o la combinación de valores que mejor nos permite obtener el precio de un inmueble.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>barrio_sol[<span class="fu">which</span>(barrio_sol<span class="sc">$</span>MetrosCuadrados<span class="sc">&lt;</span><span class="dv">20</span>),<span class="st">"MetrosCuadrados"</span>]<span class="ot">&lt;-</span><span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">na.omit</span>(barrio_sol[, <span class="fu">c</span>(<span class="st">"NumBanyos"</span>, <span class="st">"NumDormitorios"</span>, <span class="st">"MaxOcupantes"</span>, <span class="st">"MetrosCuadrados"</span>)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                NumBanyos NumDormitorios MaxOcupantes MetrosCuadrados
+NumBanyos       1.0000000      0.7245916    0.8604387       0.6040653
+NumDormitorios  0.7245916      1.0000000    0.7854671       0.8290754
+MaxOcupantes    0.8604387      0.7854671    1.0000000       0.6909450
+MetrosCuadrados 0.6040653      0.8290754    0.6909450       1.0000000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">data=</span>barrio_sol, <span class="at">formula =</span> Precio<span class="sc">~</span>NumDormitorios <span class="sc">+</span> MetrosCuadrados <span class="sc">+</span> NumBanyos <span class="sc">+</span> MaxOcupantes)</span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Precio ~ NumDormitorios + MetrosCuadrados + NumBanyos + 
+    MaxOcupantes, data = barrio_sol)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-78.276  -15.432   -5.095   19.767   68.926  
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)      31.2243    14.4988   2.154  0.04003 * 
+NumDormitorios   29.5746     9.1284   3.240  0.00308 **
+MetrosCuadrados   0.1836     0.2225   0.825  0.41611   
+NumBanyos         1.3061    15.1351   0.086  0.93185   
+MaxOcupantes      2.1814     4.6800   0.466  0.64474   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for gaussian family taken to be 1038.831)
+
+    Null deviance: 116662  on 32  degrees of freedom
+Residual deviance:  29087  on 28  degrees of freedom
+  (668 observations deleted due to missingness)
+AIC: 329.44
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">data=</span>barrio_sol, <span class="at">formula =</span> Precio<span class="sc">~</span>NumDormitorios <span class="sc">+</span> MetrosCuadrados)</span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Precio ~ NumDormitorios + MetrosCuadrados, data = barrio_sol)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-87.019  -16.614   -1.743   20.521   66.975  
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      37.3505    11.2732   3.313  0.00241 ** 
+NumDormitorios   33.1291     7.4476   4.448  0.00011 ***
+MetrosCuadrados   0.2001     0.2145   0.933  0.35824    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for gaussian family taken to be 987.9101)
+
+    Null deviance: 116662  on 32  degrees of freedom
+Residual deviance:  29637  on 30  degrees of freedom
+  (668 observations deleted due to missingness)
+AIC: 326.06
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+</div>
+<p><strong>El modelo para obtener el precio debería incluir el número de habitaciones y puede incluir el campo de metros cuadrados, aunque su influencia es menor (sin poder decirse que no influye)</strong></p>
+<p>¿Que variable es más fiable para conocer el precio de un inmueble, el número de habitaciones o los metros cuadrados?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">data=</span>barrio_sol, <span class="at">formula =</span> Precio<span class="sc">~</span>NumDormitorios <span class="sc">+</span> MetrosCuadrados)</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = Precio ~ NumDormitorios + MetrosCuadrados, data = barrio_sol)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-87.019  -16.614   -1.743   20.521   66.975  
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      37.3505    11.2732   3.313  0.00241 ** 
+NumDormitorios   33.1291     7.4476   4.448  0.00011 ***
+MetrosCuadrados   0.2001     0.2145   0.933  0.35824    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for gaussian family taken to be 987.9101)
+
+    Null deviance: 116662  on 32  degrees of freedom
+Residual deviance:  29637  on 30  degrees of freedom
+  (668 observations deleted due to missingness)
+AIC: 326.06
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+</div>
+<p><strong>El número de dormitorios es claramente más significativo que los metros cuadrados</strong></p>
+<p>Responde con su correspondiente margen de error del 95%, ¿cuantos euros incrementa el precio del alquiler por cada metro cuadrado extra del piso?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>modelo_lineal <span class="ot">&lt;-</span> <span class="fu">lm</span>(Precio <span class="sc">~</span> MetrosCuadrados, <span class="at">data=</span>barrio_sol)</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(modelo_lineal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    2.5 %   97.5 %
+(Intercept)     0.7999527 58.37229
+MetrosCuadrados 0.6812218  1.30121</code></pre>
+</div>
+</div>
+<p><strong>El precio se incrementa entre 0,681 y 1,301 euros por cada metro cuadrado</strong></p>
+<p>Responde con su correspondiente margen de error del 95%, ¿cuantos euros incrementa el precio del alquiler por cada habitación?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>modelo_lineal <span class="ot">&lt;-</span> <span class="fu">lm</span>(Precio <span class="sc">~</span> NumDormitorios, <span class="at">data=</span>barrio_sol)</span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(modelo_lineal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  2.5 %   97.5 %
+(Intercept)    47.54299 57.62561
+NumDormitorios 30.50004 36.22803</code></pre>
+</div>
+</div>
+<p><strong>El precio se incrementa entre 30,5 y 36,228 euros por cada metro cuadrado</strong></p>
+<p>¿Cual es la probabilidad de encontrar, en el barrio de Sol, un apartamento en alquiler con 3 dormitorios? ¿Cual es el intervalo de confianza de esa probabilidad?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">table</span>(barrio_sol<span class="sc">$</span>NumDormitorios))</span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(datos) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Numero habitaciones"</span>,<span class="st">"Frecuencia"</span>)</span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="fu">binom.test</span>(datos<span class="sc">$</span>Frecuencia[<span class="fu">which</span>(datos<span class="sc">$</span><span class="st">`</span><span class="at">Numero habitaciones</span><span class="st">`</span><span class="sc">==</span><span class="dv">3</span>)],<span class="fu">length</span>(barrio_sol<span class="sc">$</span>NumDormitorios))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Exact binomial test
+
+data:  datos$Frecuencia[which(datos$`Numero habitaciones` == 3)] and length(barrio_sol$NumDormitorios)
+number of successes = 55, number of trials = 701, p-value &lt; 2.2e-16
+alternative hypothesis: true probability of success is not equal to 0.5
+95 percent confidence interval:
+ 0.0596506 0.1009033
+sample estimates:
+probability of success 
+            0.07845934 </code></pre>
+</div>
+</div>
+<p><strong>La probabilidad de encontrar una habitación de 3 dormitorios es de un 7,84% con un intervalo de confianza del 95% de (5,96% y 10,09%)</strong></p>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
